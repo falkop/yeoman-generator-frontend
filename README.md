@@ -1,5 +1,3 @@
-# generator-frontend-boilerplate [![Build Status](https://secure.travis-ci.org/falkop/generator-frontend-boilerplate.png?branch=master)](https://travis-ci.org/falkop/generator-frontend-boilerplate)
-
 > [Yeoman](http://yeoman.io) generator
 
 
@@ -7,41 +5,54 @@
 
 ### What is Yeoman?
 
-Trick question. It's not a thing. It's this guy:
+Best knowledgebase about yeoman is on their website:
+[Yeoman](http://yeoman.io) generator
 
-![](http://i.imgur.com/JHaAlBJ.png)
+### Quick install yeoman
 
-Basically, he wears a top hat, lives in your computer, and waits for you to tell him what kind of application you wish to create.
+If you don't have npm then go to:
 
-Not every new computer comes with a Yeoman pre-installed. He lives in the [npm](https://npmjs.org) package repository. You only have to ask for him once, then he packs up and moves into your hard drive. *Make sure you clean up, he likes new and shiny things.*
+[npm](https://www.npmjs.com/)
+
+Installing npm
+
+```bash
+sudo npm install npm -g
+```
+
+Installing yeoman
 
 ```bash
 npm install -g yo
 ```
 
-### Yeoman Generators
+### Yeoman Generator Frontend Boilerplate
 
-Yeoman travels light. He didn't pack any generators when he moved in. You can think of a generator like a plug-in. You get to choose what type of application you wish to create, such as a Backbone application or even a Chrome extension.
-
-To install generator-frontend-boilerplate from npm, run:
+To run 'generator-frontend-boilerplate' download the source wherever you want.
+Open your terminal go to the root of the generator ('generator-frontend-boilerplate'/) and type
 
 ```bash
-npm install -g generator-frontend-boilerplate
+npm link
 ```
+That will install the generator dependencies and symlink a global module to your local file.
 
-Finally, initiate the generator:
+
+After npm is done, create a folder where you want to start your project and call
 
 ```bash
 yo frontend-boilerplate
 ```
+after that follow the instruction
 
-### Getting To Know Yeoman
+--------
+At the moment 'generator-frontend-boilerplate' is not avaivable on npm 
+otherwise you would install 'generator-frontend-boilerplate' from npm like:
 
-Yeoman has a heart of gold. He's a person with feelings and opinions, but he's very easy to work with. If you think he's too opinionated, he can be easily convinced.
+```bash
+npm install -g generator-frontend-boilerplate
+```
+--------
 
-If you'd like to get to know Yeoman better and meet some of his friends, [Grunt](http://gruntjs.com) and [Bower](http://bower.io), check out the complete [Getting Started Guide](https://github.com/yeoman/yeoman/wiki/Getting-Started).
 
-
-## License
-
-MIT
+##Generator
+Please read the README.md in the generated content
