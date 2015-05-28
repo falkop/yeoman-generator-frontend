@@ -1,0 +1,15 @@
+{
+  "globals": {
+    "$": true
+  },
+  "browser": true,
+  "esnext": true,
+  "globalstrict": true,
+  "strict": false,
+  "undef": true,
+  "unused": true,
+  "eqeqeq": true,
+  "eqnull": true,
+  "evil": true,
+  "notypeof": true
+}
