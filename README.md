@@ -1,5 +1,8 @@
 ## Getting Started
 
+You can use this generator as a setup for frontend projects.
+
+
 ### What is Yeoman?
 
 Best knowledgebase about yeoman is on their website:
@@ -27,6 +30,11 @@ npm install -g yo
 
 To run 'generator-frontend-boilerplate' download the source wherever you want.
 Open your terminal go to the root of the generator ('generator-frontend-boilerplate'/) and type
+
+```bash
+npm install
+```
+The node modules will be installed after that type
 
 ```bash
 npm link

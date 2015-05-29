@@ -27,6 +27,23 @@ var Base = yeoman.generators.Base.extend({
 				oFiles_[oFile].config
 			);
 		}
+	},
+	/**
+	 * copy js structure depends on user choice
+	 * @param  {String} sType_ prop 'jstype'
+	 */
+	createJsStructure: function(sType_) {
+		switch (sType_) {
+			case 'jquery':
+				this.directory('development/_jquery_scripts', 'development/scripts');
+				break;
+			case 'angularjs':
+				this.directory('development/_angularjs_scripts', 'development/scripts');
+				break;
+			default:
+				this.directory('development/_default_scripts', 'development/scripts');
+				break;
+		}
 	}
 });
 
@@ -41,15 +58,31 @@ module.exports = Base.extend({
 	prompting: function() {
 		var done = this.async();
 
-		this.prompt({
+		this.prompt([{
 			type: 'input',
 			name: 'appname',
 			default: 'appname',
 			message: 'What\'s the name of the app?'
-		}, function(arguments_) {
+		}, {
+			type: 'list',
+			name: 'jstype',
+			message: 'What kind of js project do you want?',
+			choices: [{
+				name: 'default',
+				value: ''
+			}, {
+				name: 'jQuery',
+				value: 'jquery'
+			}, {
+				name: 'AngularJS',
+				value: 'angularjs'
+			}]
+		}], function(arguments_) {
 			this.setProp('appname', arguments_.appname);
+			this.setProp('jstype', arguments_.jstype);
 			done();
 		}.bind(this));
+
 	},
 	/**
 	 * Saving configurations and configure the project (creating .editorconfig files and other metadata files)
@@ -116,6 +149,9 @@ module.exports = Base.extend({
 		};
 		this.copyTpl(oFiles);
 
+		//create js structure
+		this.createJsStructure(this.getProp('jstype'));
+
 		//copy whole style structure
 		this.directory('development/styles', 'development/styles');
 	},
@@ -129,19 +165,19 @@ module.exports = Base.extend({
 	 * Where installation are run (npm, bower)
 	 */
 	install: function() {
-		this.npmInstall(
-			[
-				'autoprefixer-core',
-				'grunt',
-				'grunt-contrib-clean',
-				'grunt-contrib-watch',
-				'grunt-postcss',
-				'grunt-contrib-sass',
-				'grunt-contrib-copy'
-			], {
-				'saveDev': true
-			}
-		);
+		// this.npmInstall(
+		// 	[
+		// 		'autoprefixer-core',
+		// 		'grunt',
+		// 		'grunt-contrib-clean',
+		// 		'grunt-contrib-watch',
+		// 		'grunt-postcss',
+		// 		'grunt-contrib-sass',
+		// 		'grunt-contrib-copy'
+		// 	], {
+		// 		'saveDev': true
+		// 	}
+		// );
 	},
 	/**
 	 *  Called last, cleanup, say good bye, etc
