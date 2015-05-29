@@ -1,7 +1,7 @@
 'use strict';
-var yeoman = require('yeoman-generator');
-var chalk = require('chalk');
-var yosay = require('yosay');
+var yeoman = require('yeoman-generator'),
+	chalk = require('chalk'),
+	yosay = require('yosay');
 
 var Base = yeoman.generators.Base.extend({
 	setProp: function(sKeyName_, value_) {
@@ -92,8 +92,15 @@ module.exports = Base.extend({
 				config: {
 					pkg: {
 						project: {
-							cssCWD: '<%= pkg.project.cssCWD %>',
-							scssCWD: '<%= pkg.project.scssCWD %>'
+							dev: {
+								cwd: '<%= pkg.project.dev.cwd %>',
+								cssCWD: '<%= pkg.project.dev.cssCWD %>',
+								scssCWD: '<%= pkg.project.dev.scssCWD %>'
+							},
+							deploy: {
+								cwd: '<%= pkg.project.deploy.cwd %>',
+								cssCWD: '<%= pkg.project.deploy.cssCWD %>'
+							}
 						}
 					}
 				}
@@ -121,11 +128,12 @@ module.exports = Base.extend({
 		this.npmInstall(
 			[
 				'autoprefixer-core',
-				'csswring',
 				'grunt',
+				'grunt-contrib-clean',
 				'grunt-contrib-watch',
 				'grunt-postcss',
-				'grunt-sass'
+				'grunt-contrib-sass',
+				'grunt-contrib-copy'
 			], {
 				'saveDev': true
 			}

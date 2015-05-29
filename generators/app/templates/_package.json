@@ -3,7 +3,14 @@
 	"version": "0.0.0",
 	"author": "",
 	"project": {
-		"scssCWD": "development/styles/sass",
-		"cssCWD": "development/styles/build"
-	}
+		"dev": {
+			"cwd": "development",
+			"scssCWD": "development/styles/sass",
+			"cssCWD": "development/styles/build"
+		},
+		"deploy": {
+			"cwd": "deploy",
+			"cssCWD": "deploy/styles/build"
+		}
+	  }
 }

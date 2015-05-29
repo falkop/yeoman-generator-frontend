@@ -5,7 +5,6 @@
 
 
 ### Grunt
-
 - grunt postcss autoprefixer https://github.com/ai/browserslist
 
 
@@ -13,26 +12,30 @@
 
 ```
 .
+├── .bowerrc
+├── .gitignore
+├── Gruntfile.js
 ├── README.md
-├── config.rb
 ├── development
 │   ├── index.html
-│   ├── js
 │   └── styles
+│       ├── .DS_Store
 │       └── sass
+│           ├── .DS_Store
 │           ├── base
+│           │   ├── .DS_Store
 │           │   ├── _fonts.scss
-│           │   ├── _global.scss
 │           │   ├── _meyer-reset.scss
 │           │   └── _normalize.scss
 │           ├── helpers
+│           │   ├── .DS_Store
 │           │   ├── _mixins.scss
 │           │   └── _variables.scss
+│           ├── layout
+│           │   └── _global.scss
 │           └── screen.scss
 ├── jshintrc
 ├── node_modules
-│   ├── compass
-│   ├── grunt
 └── package.json
 ```
 
@@ -40,9 +43,11 @@
 use tabs width: 4
 
 ##SASS / SCSS
-For compiling the scss code a grunt task is used 'sass_compile'
+For one time compiling the scss code use the grunt task: 'sass_compile'
+For permanent compiling after changing your code use the watch task: 'sass_watch'
 
 ###SASS directory structure
+Inspired by http://www.sitepoint.com/architecture-sass-project/
 ```
 sass/ 
 | 
@@ -93,6 +98,44 @@ sass/
 `– screen.scss             # primary Sass file 
 ```
 
+###Architecture
+BEM: https://css-tricks.com/bem-101/
+
+```CSS
+.accordion {
+	max-width: 600px;
+	margin: 4rem auto;
+	width: 90%;
+	font-family: "Raleway", sans-serif;
+	background: #f4f4f4;
+}
+.accordion__title {
+	font-size: 0.7rem;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	padding: 1rem 1.5rem;
+	background: #5B5F97;
+	color: white;
+	cursor: pointer;
+	transition: .3s ease;
+}
+.accordion__title:hover {
+	background: #484b77;
+}
+.accordion__copy {
+	display: none;
+	padding: 1rem 1.5rem 2rem 1.5rem;
+	color: gray;
+	line-height: 1.6;
+	font-size: 14px;
+	font-weight: 500;
+}
+.accordion__copy--open {
+	display: block;
+}
+```
+
+
 ###SASS styleguide
 collection css styleguides https://css-tricks.com/css-style-guides/
 
@@ -113,32 +156,33 @@ Stay on the road:
 - Nested Selectors Next
 - Nested Pseudo Classes and Pseudo Elements Last 
 
-```
+```css
 .weather {
-  @extend %module; 
-  @include transition(all 0.3s ease);
-  background: LightCyan;
-  > h3 {
-    @include transform(rotate(90deg));
-    border-bottom: 1px solid white;
-  }
-  &:hover {
-    background: DarkCyan;
-  }
-  &::before {
-    content: "";
-    display: block;
-  }
+	@extend %module; 
+	@include transition(all 0.3s ease);
+	background: LightCyan;
+	> h3 {
+		@include transform(rotate(90deg));
+		border-bottom: 1px solid white;
+	}
+	&:hover {
+		background: DarkCyan;
+	}
+	&::before {
+		content: "";
+		display: block;
+	}
 }
 ```
 
 Maximum Nesting: Three Levels Deep
+
 ```
 .weather {
   .cities {
-    li {
-      // no more!
-    }
+	li {
+	  // no more!
+	}
   }
 }
 ```
@@ -149,7 +193,8 @@ Break Into As Many Small Files As Makes Sense
 Don't Even Commit .css Files
 
 Be Generous With Comments
-```
+
+```css
 .overlay {
   // modals are 6000, saving messages are 5500, header is 2000
   z-index: 5000; 
@@ -157,30 +202,33 @@ Be Generous With Comments
 ```
 
 Variablize All Common Numbers, and Numbers with Meaning
-```
+
+```sass
 $zHeader: 2000;
 $zOverlay: 5000;
 $zMessage: 5050;
 
 .header {
-  z-index: $zHeader;
+	z-index: $zHeader;
 }
 .overlay {
-  z-index: $zOverlay;
+	z-index: $zOverlay;
 }
 .message {
-  z-index: $zMessage;
+	z-index: $zMessage;
 }
 ```
+
 Variables are stored in '_variables.scss' except specific variables in components
-```
+
+```sass
 .accordion {
-  $accordion-header-color: $primary-color;
-  $accordion-padding: 1em;
-  
-  @extend %module;
-  @include transition(all 0.3s ease-out);
-  background: $accordion-header-color;
-  padding: $accordion-padding;
+	$accordion-header-color: $primary-color;
+	$accordion-padding: 1em;
+
+	@extend %module;
+	@include transition(all 0.3s ease-out);
+	background: $accordion-header-color;
+	padding: $accordion-padding;
 }
 ```
