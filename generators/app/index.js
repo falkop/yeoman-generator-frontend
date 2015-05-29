@@ -79,6 +79,10 @@ module.exports = Base.extend({
 				template: '_jshintrc',
 				dest: 'jshintrc'
 			},
+			jscsrc: {
+				template: '_.jscsrc',
+				dest: '.jscsrc'
+			},
 			pkgjson: {
 				template: '_package.json',
 				dest: 'package.json',
