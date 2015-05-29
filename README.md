@@ -13,7 +13,7 @@ If you don't have npm then go to:
 
 Installing npm
 
-```css
+```bash
 sudo npm install npm -g
 ```
 
