@@ -12,6 +12,21 @@ If you don't have npm then go to:
 [npm](https://www.npmjs.com/)
 
 Installing npm
+```sass
+$zHeader: 2000;
+$zOverlay: 5000;
+$zMessage: 5050;
+
+.header {
+  z-index: $zHeader;
+}
+.overlay {
+  z-index: $zOverlay;
+}
+.message {
+  z-index: $zMessage;
+}
+```
 
 ```bash
 sudo npm install npm -g
