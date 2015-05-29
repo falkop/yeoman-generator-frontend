@@ -13,26 +13,30 @@
 
 ```
 .
+├── .bowerrc
+├── .gitignore
+├── Gruntfile.js
 ├── README.md
-├── config.rb
 ├── development
 │   ├── index.html
-│   ├── js
 │   └── styles
+│       ├── .DS_Store
 │       └── sass
+│           ├── .DS_Store
 │           ├── base
+│           │   ├── .DS_Store
 │           │   ├── _fonts.scss
-│           │   ├── _global.scss
 │           │   ├── _meyer-reset.scss
 │           │   └── _normalize.scss
 │           ├── helpers
+│           │   ├── .DS_Store
 │           │   ├── _mixins.scss
 │           │   └── _variables.scss
+│           ├── layout
+│           │   └── _global.scss
 │           └── screen.scss
 ├── jshintrc
 ├── node_modules
-│   ├── compass
-│   ├── grunt
 └── package.json
 ```
 
