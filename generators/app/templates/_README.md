@@ -46,6 +46,9 @@ use tabs width: 4
 For one time compiling the scss code use the grunt task: 'sass_compile'
 For permanent compiling after changing your code use the watch task: 'sass_watch'
 
+For the future:
+If grunt task 'sass_watch' is to slow then switch to libsass and using 'postcss' via grunt
+
 ###SASS directory structure
 Inspired by http://www.sitepoint.com/architecture-sass-project/
 ```
@@ -179,9 +182,9 @@ Maximum Nesting: Three Levels Deep
 
 ```
 .weather {
-  .cities {
+.cities {
 	li {
-	  // no more!
+		// no more!
 	}
   }
 }
@@ -196,8 +199,8 @@ Be Generous With Comments
 
 ```css
 .overlay {
-  // modals are 6000, saving messages are 5500, header is 2000
-  z-index: 5000; 
+	// modals are 6000, saving messages are 5500, header is 2000
+	z-index: 5000; 
 }
 ```
 
