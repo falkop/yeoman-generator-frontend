@@ -30,18 +30,19 @@ var Base = yeoman.generators.Base.extend({
 	},
 	/**
 	 * copy js structure depends on user choice
+	 * TODO: initialize specific bower and grunt tasks for user choice
 	 * @param  {String} sType_ prop 'jstype'
 	 */
 	createJsStructure: function(sType_) {
 		switch (sType_) {
 			case 'jquery':
-				this.directory('development/_jquery_scripts', 'development/scripts');
+				this.directory(this.setup.dir.source.script.jquery, this.setup.dir.dest.script);
 				break;
 			case 'angularjs':
-				this.directory('development/_angularjs_scripts', 'development/scripts');
+				this.directory(this.setup.dir.source.script.angular, this.setup.dir.dest.script);
 				break;
 			default:
-				this.directory('development/_default_scripts', 'development/scripts');
+				this.directory(this.setup.dir.source.script.default, this.setup.dir.dest.script);
 				break;
 		}
 	}
@@ -51,7 +52,10 @@ module.exports = Base.extend({
 	/**
 	 * Your initialization methods (checking current project state, getting configs, etc)
 	 */
-	initializing: function() {},
+	initializing: function() {
+		//read and parse setup json
+		this.setup = JSON.parse(this.read('../setup.json'));
+	},
 	/**
 	 * Where you prompt users for options (where you'd call this.prompt())
 	 */
@@ -153,7 +157,7 @@ module.exports = Base.extend({
 		this.createJsStructure(this.getProp('jstype'));
 
 		//copy whole style structure
-		this.directory('development/styles', 'development/styles');
+		this.directory(this.setup.dir.source.style, this.setup.dir.dest.style);
 	},
 	/**
 	 * Where conflicts are handled (used internally)
@@ -165,19 +169,19 @@ module.exports = Base.extend({
 	 * Where installation are run (npm, bower)
 	 */
 	install: function() {
-		// this.npmInstall(
-		// 	[
-		// 		'autoprefixer-core',
-		// 		'grunt',
-		// 		'grunt-contrib-clean',
-		// 		'grunt-contrib-watch',
-		// 		'grunt-postcss',
-		// 		'grunt-contrib-sass',
-		// 		'grunt-contrib-copy'
-		// 	], {
-		// 		'saveDev': true
-		// 	}
-		// );
+		this.npmInstall(
+			[
+				'autoprefixer-core',
+				'grunt',
+				'grunt-contrib-clean',
+				'grunt-contrib-watch',
+				'grunt-postcss',
+				'grunt-contrib-sass',
+				'grunt-contrib-copy'
+			], {
+				'saveDev': true
+			}
+		);
 	},
 	/**
 	 *  Called last, cleanup, say good bye, etc

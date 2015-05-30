@@ -1,0 +1,16 @@
+{
+	"dir": {
+		"source": {
+			"script": {
+				"default": "development/_default_scripts",
+				"angular": "development/_angularjs_scripts",
+				"jquery": "development/_jquery_scripts"
+			},
+			"style": "development/styles"
+		},
+		"dest": {
+			"script": "development/scripts",
+			"style": "development/styles"
+		}
+	}
+}
