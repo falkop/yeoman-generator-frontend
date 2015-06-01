@@ -69,6 +69,6 @@ The code for the generator is in:
 Handle e.g. bower and grunt dependencies in 'setup.json':
 ```bash
 ./generators/app/setup.json
-``
+```
 
 Please read the README.md in the generated content
