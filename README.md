@@ -1,6 +1,7 @@
 ## Getting Started
 
 You can use this generator as a setup for frontend projects.
+Feel free to modify.
 
 
 ### What is Yeoman?
@@ -60,4 +61,14 @@ npm install -g generator-frontend-boilerplate
 
 
 ##Generator
+The code for the generator is in:
+```bash
+./generators/app/index.js
+```
+
+Handle e.g. bower and grunt dependencies in 'setup.json':
+```bash
+./generators/app/setup.json
+``
+
 Please read the README.md in the generated content
