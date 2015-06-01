@@ -30,7 +30,6 @@ var Base = yeoman.generators.Base.extend({
 	},
 	/**
 	 * copy js structure depends on user choice
-	 * TODO: initialize specific bower and grunt tasks for user choice
 	 * @param  {String} sType_ prop 'jstype'
 	 */
 	createJsStructure: function(sType_) {
@@ -45,6 +44,33 @@ var Base = yeoman.generators.Base.extend({
 				this.directory(this.setup.dir.source.script.default, this.setup.dir.dest.script);
 				break;
 		}
+	},
+
+	/**
+	 * return bower and grunt dependencies for js user choice
+	 * @return {Object} 
+	 */
+	getJsDependency: function(sType_) {
+		var oDepedencies = {
+			bower: [],
+			npm: []
+		};
+		switch (sType_) {
+			case 'jquery':
+				oDepedencies.bower = this.setup.bower.jquery;
+				oDepedencies.npm = this.setup.npm.jquery;
+				break;
+			case 'angular':
+				oDepedencies.bower = this.setup.bower.angular;
+				oDepedencies.npm = this.setup.npm.angular;
+				break;
+			default:
+				oDepedencies.bower = this.setup.bower.default;
+				oDepedencies.npm = this.setup.npm.default;
+				break;
+		}
+
+		return oDepedencies;
 	}
 });
 
@@ -108,6 +134,10 @@ module.exports = Base.extend({
 				template: '_.bowerrc',
 				dest: '.bowerrc'
 			},
+			bower: {
+				template: '_bower.json',
+				dest: 'bower.json'
+			},
 			gitignore: {
 				template: '_.gitignore',
 				dest: '.gitignore'
@@ -169,19 +199,32 @@ module.exports = Base.extend({
 	 * Where installation are run (npm, bower)
 	 */
 	install: function() {
+
+		var aJsDependency = this.getJsDependency(this.getProp('jstype'));
+
+		//install 'base' npm packages
 		this.npmInstall(
-			[
-				'autoprefixer-core',
-				'grunt',
-				'grunt-contrib-clean',
-				'grunt-contrib-watch',
-				'grunt-postcss',
-				'grunt-contrib-sass',
-				'grunt-contrib-copy'
-			], {
+			this.setup.npm.base, {
 				'saveDev': true
 			}
 		);
+
+		//install 'base' npm packages
+		this.bowerInstall(
+			this.setup.bower.base, {
+				'saveDev': true
+			}
+		);
+
+		//install bower js dependencies
+		this.bowerInstall(aJsDependency.bower, {
+			'saveDev': true
+		});
+
+		//install npm js dependencies
+		this.npmInstall(aJsDependency.npm, {
+			'saveDev': true
+		});
 	},
 	/**
 	 *  Called last, cleanup, say good bye, etc

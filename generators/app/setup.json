@@ -12,5 +12,33 @@
 			"script": "development/scripts",
 			"style": "development/styles"
 		}
+	},
+	"bower": {
+		"base": [
+			
+		],
+		"default": [
+			
+		],
+		"jquery": [
+			"jquery"
+		],
+		"angular": []
+	},
+	"npm": {
+		"base": [
+			"autoprefixer-core",
+			"grunt",
+			"grunt-contrib-clean",
+			"grunt-contrib-watch",
+			"grunt-postcss",
+			"grunt-contrib-sass",
+			"grunt-contrib-copy"
+		],
+		"default": [
+			
+		],
+		"jquery": [],
+		"angular": []
 	}
 }
