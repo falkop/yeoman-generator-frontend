@@ -143,8 +143,8 @@ module.exports = Base.extend({
 				dest: '.gitignore'
 			},
 			jshintrc: {
-				template: '_jshintrc',
-				dest: 'jshintrc'
+				template: '_.jshintrc',
+				dest: '.jshintrc'
 			},
 			jscsrc: {
 				template: '_.jscsrc',
@@ -166,7 +166,8 @@ module.exports = Base.extend({
 							dev: {
 								cwd: '<%= pkg.project.dev.cwd %>',
 								cssCWD: '<%= pkg.project.dev.cssCWD %>',
-								scssCWD: '<%= pkg.project.dev.scssCWD %>'
+								scssCWD: '<%= pkg.project.dev.scssCWD %>',
+								jsCWD: '<%= pkg.project.dev.jsCWD %>'
 							},
 							deploy: {
 								cwd: '<%= pkg.project.deploy.cwd %>',

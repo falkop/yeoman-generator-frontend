@@ -15,10 +15,10 @@
 	},
 	"bower": {
 		"base": [
-			
+
 		],
 		"default": [
-			
+
 		],
 		"jquery": [
 			"jquery"
@@ -29,6 +29,12 @@
 		"base": [
 			"autoprefixer-core",
 			"grunt",
+			"grunt-contrib-jshint",
+			"grunt-jscs",
+			"jscs-html-reporter",
+			"jscs-stylish",
+			"jshint-html-reporter",
+			"jshint-stylish",
 			"grunt-contrib-clean",
 			"grunt-contrib-watch",
 			"grunt-postcss",
@@ -36,7 +42,7 @@
 			"grunt-contrib-copy"
 		],
 		"default": [
-			
+
 		],
 		"jquery": [],
 		"angular": []

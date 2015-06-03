@@ -7,6 +7,10 @@
 ### Grunt
 - grunt postcss autoprefixer https://github.com/ai/browserslist
 
+task hints:
+copy:deploy
+	*in 'development/asset' direcotry folder name with a beginning '_' will be ignored and not copied to the deploy folder
+
 
 ##Directory structure:
 

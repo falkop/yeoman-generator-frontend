@@ -6,7 +6,8 @@
 		"dev": {
 			"cwd": "development",
 			"scssCWD": "development/styles/sass",
-			"cssCWD": "development/styles/build"
+			"cssCWD": "development/styles/build",
+			"jsCWD": "development/scripts/app"
 		},
 		"deploy": {
 			"cwd": "deploy",
