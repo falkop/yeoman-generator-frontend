@@ -2,29 +2,31 @@
  * @description here comes your description
  */
 
-/* jshint browser:true, smarttabs:true, eqeqeq:true, strict:false, devel:true, latedef:true, undef:true, unused:false, noempty:false*/
-/* global angular:true */
+/* global jQuery:true, $:true, angular:true */
+
+'use strict';
 
 (function() {
 
 	/* @ngInject */
-	function Factory(dependencies) {
-		var service = {
-			func: func
-		};
-		return service;
+	function factoryTEMPLATE(dependencies) {
 
 		/**
 		 * [func description]
+		 * @return {[type]} [description]
 		 */
 		function func() {
 		}
+
+		return {
+			func: func
+		};
 	}
 
 	angular
 		.module('module')
-		.factory('Factory', Factory);
+		.factory('factoryTEMPLATE', factoryTEMPLATE);
 
-	Factory.$inject = ['dependencies'];
+	factoryTEMPLATE.$inject = ['dependencies'];
 	
 })();

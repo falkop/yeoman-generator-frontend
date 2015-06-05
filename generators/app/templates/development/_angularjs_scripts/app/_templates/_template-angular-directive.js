@@ -2,36 +2,32 @@
  * @description here comes your description
  */
 
-/* jshint browser:true, smarttabs:true, eqeqeq:true, strict:false, devel:true, latedef:true, undef:true, unused:false, noempty:false*/
-/* global angular:true */
+/* global jQuery:true, $:true, angular:true */
+
+'use strict';
 
 (function() {
 
 	/* @ngInject */
-	function directive (dependencies) {
-		// Usage:
-		//
-		// Creates:
-		//
+	function directiveTEMPLATE (dependencies) {
+		/**
+		 * function to modify the DOM
+		 * @param  {Object}    Angular scope object
+		 * @param  {Object}  is the jqLite-wrapped element that this directive matches
+		 * @param  {Object} attrs_    myCurrentTime
+		 */
+		function link($scope_, $element_, oAttrs_) {
+		}
+
 		return {
 			bindToController: true,
 			controller: Controller,
 			controllerAs: 'vm',
 			link: link,
-			restrict: 'A',
+			restrict: 'EA',
 			scope: {
 			}
 		};
-
-		/**
-		 * [link description]
-		 * @param  {[type]} scope   [description]
-		 * @param  {[type]} element [description]
-		 * @param  {[type]} attrs   [description]
-		 * @return {[type]}         [description]
-		 */
-		function link(scope, element, attrs) {
-		}
 	}
 
 	/* @ngInject */
@@ -40,8 +36,8 @@
 	}
 
 	angular
-		.module('module')
-		.directive('directive', directive);
+		.module('moduleTEMPLATE')
+		.directive('directiveTEMPLATE', directiveTEMPLATE);
 
-	directive.$inject = ['dependencies'];
+	directiveTEMPLATE.$inject = ['dependencies'];
 })();
