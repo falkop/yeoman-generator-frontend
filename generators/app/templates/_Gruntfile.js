@@ -4,6 +4,11 @@
 
 module.exports = function(grunt) {
 
+	//exlcude directories or files for deployment
+	var aExcludeFiles = [
+		'/icomoon'
+	];
+
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
 
@@ -135,12 +140,13 @@ module.exports = function(grunt) {
 					dest: '<%= pkg.project.deploy.cwd %>/assets',
 					src: '**',
 					filter: function(filepath_) {
-						//exlude directories and files with an underscore e.g. 'assets/_sample.png'
-						//if filepath includes '/_' then don't copy directory
-						if(filepath_.match('/_') !== null) {
-							return false;
-						} else {
-							return true;
+						for (var i = 0; i < aExcludeFiles.length; i++) {
+							//exlude directories or files which are defined in 'aExcludeFiles'
+							if (filepath_.match(aExcludeFiles[i]) !== null) {
+								return false;
+							} else {
+								return true;
+							}
 						}
 					}
 				}]

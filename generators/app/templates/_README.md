@@ -1,15 +1,33 @@
 ## Requirements
-- ruby https://www.ruby-lang.org/en/
-- sass --version 3.4.14 http://sass-lang.com/
-- sass-globbing --version 1.1.0 https://github.com/chriseppstein/sass-globbing !there are issues with version 1.1.1 use 1.1.0
+* ruby https://www.ruby-lang.org/en/
+* sass --version 3.4.14 http://sass-lang.com/
+* sass-globbing --version 1.1.0 https://github.com/chriseppstein/sass-globbing 
+  * **there are issues with version 1.1.1 use 1.1.0**
+
+## Start
+* pls see 'Requirements'
+* open your terminal and go to the project folder
+* install all node modules:
+
+```bash
+npm install
+```
+* [see grunt tasks](https://git.my-moove.com/falko.pfitzke/moove-playground-startpage-visualisation/tree/master#grunt)
 
 
 ### Grunt
-- grunt postcss autoprefixer https://github.com/ai/browserslist
+* grunt sass_watch
+  * start watch task to compile sass files on change
+* grunt postcss
+  * autoprefixer configuartion https://github.com/ai/browserslist
+* grunt deploy
+  * deploys the project
 
-task hints:
-copy:deploy
-	*in 'development/asset' direcotry folder name with a beginning '_' will be ignored and not copied to the deploy folder
+#### Deployment
+
+```bash
+grunt deploy
+```
 
 
 ##Directory structure:
