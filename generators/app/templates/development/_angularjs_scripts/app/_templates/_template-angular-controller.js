@@ -2,28 +2,31 @@
  * @description here comes your description
  */
 
-/* jshint browser:true, smarttabs:true, eqeqeq:true, strict:false, devel:true, latedef:true, undef:true, unused:false, noempty:false*/
-/* global angular:true */
+/* global jQuery:true, $:true, angular:true */
+
+'use strict';
 
 (function() {
 
 	/* @ngInject */
-	function Ctrl(dependencies) {
+	function templateController(dependencies) {
+
 		var vm = this;
-		vm.title = 'Ctrl';
+
+		vm.title = 'templateController';
 
 		/**
-		 * [activate description]
+		 * [initialize description]
 		 */
-		function activate() {
+		function initialize() {
 		}
 
-		activate();
+		initialize();
 	}
 
 	angular
 		.module('module')
-		.controller('Ctrl', Ctrl);
+		.controller('templateController', templateController);
 
-	Ctrl.$inject = ['dependencies'];
+	templateController.$inject = ['dependencies'];
 })();

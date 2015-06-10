@@ -9,7 +9,7 @@
 (function() {
 
 	/* @ngInject */
-	function directiveTEMPLATE (dependencies) {
+	function templateDirective (dependencies) {
 		/**
 		 * function to modify the DOM
 		 * @param  {Object}    Angular scope object
@@ -21,7 +21,7 @@
 
 		return {
 			bindToController: true,
-			controller: Controller,
+			controller: templateController,
 			controllerAs: 'vm',
 			link: link,
 			restrict: 'EA',
@@ -31,13 +31,23 @@
 	}
 
 	/* @ngInject */
-	function Controller () {
+	function templateController (dependencies) {
+		var vm = this;
 
+		/**
+ 		 * [initialize description]
+		 */
+		function _initialize() {
+
+		}
+
+		_initialize();
 	}
 
 	angular
 		.module('moduleTEMPLATE')
-		.directive('directiveTEMPLATE', directiveTEMPLATE);
+		.directive('templateDirective', templateDirective);
 
-	directiveTEMPLATE.$inject = ['dependencies'];
+	templateDirective.$inject = ['dependencies'];
+	templateController.$inject = ['dependencies'];
 })();
