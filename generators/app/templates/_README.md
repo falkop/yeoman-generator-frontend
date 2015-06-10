@@ -12,7 +12,7 @@
 ```bash
 npm install
 ```
-* [see grunt tasks](#grunt)
+* see grunt tasks
 
 
 ### Grunt
