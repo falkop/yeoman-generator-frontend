@@ -12,7 +12,7 @@
 ```bash
 npm install
 ```
-* [see grunt tasks](https://git.my-moove.com/falko.pfitzke/moove-playground-startpage-visualisation/tree/master#grunt)
+* [see grunt tasks](#grunt)
 
 
 ### Grunt
